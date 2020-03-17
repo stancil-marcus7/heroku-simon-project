@@ -15,6 +15,7 @@ const path = require('path')
 
 const app = express();
 app.set('views', path.join(__dirname, '/'));
+app.set('view engine', 'jade')
 
 app.use(cors({credentials: true, origin: 'http://localhost:5000'}));
 
@@ -78,6 +79,8 @@ passport.use(new FacebookStrategy({
     });
   }
 ));
+
+const PORT = process.env.PORT || 3001;
 
 mongoose.connect("mongodb+srv://admin-marcus:Shiji147@simoncluster-7imve.mongodb.net/simonGameDB", { useUnifiedTopology: true, useNewUrlParser: true } );
 mongoose.set("useCreateIndex", true);
@@ -263,14 +266,12 @@ app.get('/loggedIn', (req, res) => {
 })
 
   app.get("/",(req, res) =>{
-    res.sendStatus(200)
+    res.send("yer")
   })
 
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "simon", "build", "index.html"));
 });
-
-const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, function() { 
     console.log("Server started on port 3001");
