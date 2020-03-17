@@ -1,0 +1,34 @@
+@mixin header{
+  font-size: 4rem;
+  cursor: pointer;
+}
+
+.header{
+  @include header
+}
+
+.subheader{
+  font-size: 2rem;
+  display: inline-block;
+  cursor: pointer;
+}
+
+p {
+  display: inline-block;
+}
+
+.subheaderClicked{
+  font-size: 2rem;
+  color: $red;
+  cursor: pointer;
+}
+
+.subheaders--section{
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.header:hover, .subheader:hover{
+  text-shadow: 0 0 2px #fff;
+}

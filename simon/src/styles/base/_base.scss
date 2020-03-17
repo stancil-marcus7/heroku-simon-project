@@ -1,0 +1,17 @@
+html {
+    //62.5 x .16 (rem) = 10; so we'll work with a base of 10
+    font-size: 62.5%;
+    height: 100%;
+    color: $light-yellow;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    // background-image: linear-gradient(to right, #FC466B , #3F5EFB);
+    background: black;
+    margin-right: 15%;
+    margin-left: 15%;
+  }
+
+  

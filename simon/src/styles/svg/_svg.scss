@@ -1,0 +1,12 @@
+.svg-inline--fa {
+    display: inline-block;
+    height: 1em;
+    overflow: visible;
+    vertical-align: -0.125em
+}
+
+.fa-user, .fa-table{
+    position: relative;
+    top: -2px;
+    z-index: -1;
+}
