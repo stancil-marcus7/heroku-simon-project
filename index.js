@@ -14,8 +14,7 @@ const path = require('path')
 
 
 const app = express();
-app.set('views', path.join(__dirname, '/'));
-app.set('view engine', 'jade')
+app.use(express.static(path.join(__dirname, 'simon/build')));
 
 app.use(cors({credentials: true, origin: 'http://localhost:5000'}));
 
