@@ -15,7 +15,7 @@ const Navbar = React.memo(({showScoreModal, showLoginModal}) => {
             .then(response => {
                 if (response.data === true) {
                     setLoggedIn(true)
-                    return axios.get("user")
+                    return axios.get("/user")
                             .then(response => {
                                 const player = response.data;
                                 setUsername(player.username || player.facebookDisplayName || player.googleDisplayName || player.nickName)

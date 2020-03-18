@@ -6,13 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "heroku-postbuild": "cd simon && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"nodemon index.js\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
+    "concurrently": "^5.1.0",
     "connect": "^3.7.0",
     "connect-flash": "^0.1.1",
     "connect-mongostore": "^0.1.4",
