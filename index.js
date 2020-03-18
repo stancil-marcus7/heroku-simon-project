@@ -11,7 +11,7 @@ const Player = require('./Player')
 const routes = require('./routes');
 
 const app = express();
-app.use(express.static(path.join(__dirname, 'simon/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use(cors({credentials: true, origin: 'http://localhost:3001'}));
 
