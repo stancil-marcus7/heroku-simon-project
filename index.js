@@ -13,7 +13,7 @@ const routes = require('./routes');
 const app = express();
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.use(cors({credentials: true, origin: 'http://localhost:3001'}));
+app.use(cors({credentials: true, origin: 'https://simonpassportgame.herokuapp.com'}));
 
 var flash=require("connect-flash");
 
