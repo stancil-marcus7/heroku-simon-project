@@ -55,7 +55,7 @@ const Navbar = React.memo(({showScoreModal, showLoginModal}) => {
                 <FaAlignRight/>
             </button>
             
-            <ul className={toggleHamburger ? "links show-nav--login" : "links"}>
+            <ul className={toggleHamburger ? "links show-nav" : "links"}>
                 {loggedIn ?
                 <>
                 <li>{"Welcome " + username}</li>
