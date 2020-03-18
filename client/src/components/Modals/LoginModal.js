@@ -45,10 +45,13 @@ const LoginModal = React.memo(({close, showModal}) => {
             username,
             password
         }
-
+        console.log(email)
         if (username === '' || password === '' || email === ''){
             setError('No field can be empty')
-        } else {
+        } else if (!email.includes("@")) {
+            setError('Must include email')
+        }
+         else {
             axios.post('/register', user)
             .then(response => {
                 console.log(response)

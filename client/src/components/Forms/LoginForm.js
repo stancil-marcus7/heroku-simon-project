@@ -17,7 +17,8 @@ const LoginForm = React.memo(({loginSubmit, setUsername, setPassword, registrati
                 {!newUser ? 
                 <div>
                     <h1>Welcome! Please log in!</h1>
-                    <form onSubmit={loginSubmit}>
+                    <form onSubmit={loginSubmit}
+                            autoComplete="off">
                         <div className="login-form">
                             <label>Username</label><br/>
                             <input name="username" placeholder="Enter username" onChange={e => setUsername(e.target.value)}/><br/><br/>
@@ -45,10 +46,10 @@ const LoginForm = React.memo(({loginSubmit, setUsername, setPassword, registrati
             <div>
                 <h1>...Or use your social media</h1>
                 <a href="https://simonpassportgame.herokuapp.com/auth/google" className="btn btn-block btn-social btn-google">
-                     <span><FontAwesomeIcon icon={['fab', 'google']}/></span> Sign in with Google
+                     <span><FontAwesomeIcon icon={['fab', 'google']}/></span> <span className="social-button-text">Sign in with Google</span>
                 </a>
                 <a href="https://simonpassportgame.herokuapp.com/auth/facebook" className="btn btn-block btn-social btn-facebook">
-                    <span><FontAwesomeIcon icon={['fab', 'facebook-f']}/></span> Sign in with Facebook
+                    <span><FontAwesomeIcon icon={['fab', 'facebook-f']}/></span> <span className="social-button-text">Sign in with Facebook</span>
                 </a>
             </div><br/><br/>
             <input onClick={toggleNewUser} className="click" type="button" value={!newUser ? "Don't have an account? Sign Up!" : "Already have an account? Login"}/>
