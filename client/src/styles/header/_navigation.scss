@@ -48,12 +48,7 @@ li:hover{
 }
 
 .show-nav {
-  height: 149px;
-}
-
-.show-nav--login {
-  @extend .show-nav;
-  height: 54px;
+  height: auto;
 }
 
 /* Media screen size */
