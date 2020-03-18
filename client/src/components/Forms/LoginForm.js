@@ -47,7 +47,7 @@ const LoginForm = React.memo(({loginSubmit, setUsername, setPassword, registrati
                 <a href="https://simonpassportgame.herokuapp.com/auth/google" className="btn btn-block btn-social btn-google">
                      <span><FontAwesomeIcon icon={['fab', 'google']}/></span> Sign in with Google
                 </a>
-                <a href="https://simonpassportgame.herokuapp.com//auth/facebook" className="btn btn-block btn-social btn-facebook">
+                <a href="https://simonpassportgame.herokuapp.com/auth/facebook" className="btn btn-block btn-social btn-facebook">
                     <span><FontAwesomeIcon icon={['fab', 'facebook-f']}/></span> Sign in with Facebook
                 </a>
             </div><br/><br/>

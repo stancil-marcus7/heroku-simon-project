@@ -7,7 +7,7 @@ module.exports = passport => {
     passport.use(new FacebookStrategy({
         clientID: process.env.FACEBOOK_CLIENT_ID,
         clientSecret: process.env.FACEBOOK_SECRET,
-        callbackURL: "http://localhost:3001/auth/facebook/simon",
+        callbackURL: "https://simonpassportgame.herokuapp.com/auth/facebook/simon",
         profileFields: ['id', 'displayName', 'email']
       },
       function(accessToken, refreshToken, profile, done) {
