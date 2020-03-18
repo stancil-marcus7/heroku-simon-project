@@ -63,11 +63,11 @@ router.route("/submit")
             } else  {
                 if (user && mode !== null){
                     if (mode === 'strict'){
-                      if(score > user.strictModeScore){
+                      if(score > user.strictModeScore || user.strictModeScore === null || user.strictModeScore === undefined){
                         user.strictModeScore = score;
                       }
                     } else {
-                      if (score > user.regularModeScore){
+                      if (score > user.regularModeScore || user.regularModeScore == null || user.regularModeScore === undefined){
                         user.regularModeScore = score;
                       }
                     }
