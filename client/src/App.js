@@ -62,6 +62,7 @@ const userDefaultState = {
   strictScore: 0
 }
 
+
 const [state, dispatch] = useReducer(simonReducer, defaultState);
 const [repeatSequence, setRepeatSequence] = useState(false)
 
@@ -129,12 +130,11 @@ const fadeInFadeOut = () => {
 } 
 
 useEffect(() => {
-  if(state.userPattern){
+  if(state.userPattern.length >0){
+    console.log(state)
     const initialCheck = setTimeout(() => {
       let index = state.userPattern.length - 1;
-      console.log(state.gamePattern);
-      console.log(state.userPattern)
-      if ((state.userPattern[index] !== state.gamePattern[index])) {
+      if ((state.userPattern[index] !== state.gamePattern[index]) && !state.strictMode) {
         dispatch(turnOffReadyForUserInput());
       }
   
@@ -166,10 +166,11 @@ useEffect(() => {
 
 const wrongAnswer = useCallback(() => {
   dispatch(toggleGameOver());
+  dispatch(turnOnUserIsWrong());
     sounds['wrong'].play();
     if (state.strictMode){
       setTimeout(() => {
-      resetGame()
+        dispatch(resetSimonGame());
     }, 500)} else {
       setRepeatSequence(repeatSequence => !repeatSequence)
     }
@@ -177,7 +178,6 @@ const wrongAnswer = useCallback(() => {
 
 const verifyUserMoves = useCallback(() => {
   if(state.userPattern.join() === state.gamePattern.join()){
-    console.log('update level')
     dispatch(updateLevel());
     setRepeatSequence(true);
   } else {
@@ -194,7 +194,6 @@ useEffect(() => {
 useEffect(() => {
   if (state.gameOver){
     document.body.style.background = "red";
-    dispatch(turnOnUserIsWrong());
     const wrongTimeout = setTimeout(() => {
       dispatch(toggleGameOver());
     }, 500)
@@ -228,7 +227,6 @@ useEffect(() => {
 
 useEffect(() => {
   if (repeatSequence){
-    console.log(`repeatSequence ` + repeatSequence)
     dispatch(emptyUserPattern());
   }
 },[repeatSequence])
@@ -272,8 +270,7 @@ const handleStrictToggle = () =>{
   resetGame();
   dispatch(toggleSrtictMode())
 }
-
-console.log(colors)
+console.log("level" + state.level)
     return(
       <AppContext.Provider value={{state, dispatch, sounds, colors, userState, userDispatch}}>
         <ScoreboardModal close={handleCloseScoreModal} showModal={showScoreModal}/>

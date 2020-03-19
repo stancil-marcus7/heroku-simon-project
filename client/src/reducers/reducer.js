@@ -48,7 +48,7 @@ export default (state, action) => {
                 userIsWrong: false,
                 readyForUserInput: false,
                 activeStyle: '',
-                strictRestart: false
+                strictRestart: false,
             }
         case 'UPDATE_LEVEL':
             return {
