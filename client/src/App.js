@@ -55,18 +55,8 @@ const App = React.memo(() => {
     activeStyle: '',
 }
 
-const userDefaultState = {
-  loggedIn: false,
-  username: '',
-  regScore: 0,
-  strictScore: 0
-}
-
-
 const [state, dispatch] = useReducer(simonReducer, defaultState);
 const [repeatSequence, setRepeatSequence] = useState(false)
-
-const [userState, userDispatch] = useReducer(userReducer, userDefaultState);
 
 
 const handleShowScoreModal = () => {
